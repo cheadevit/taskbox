@@ -2,9 +2,9 @@ import PureInboxScreen from './PureInboxScreen.vue';
 import { app } from '@storybook/vue3';
 import { createStore } from 'vuex';
 import { fireEvent, within } from '@storybook/testing-library';
+import { action } from '@storybook/addon-actions';
+import * as TaskListStories from './PureTaskList.stories';
 
- import { action } from '@storybook/addon-actions';
- import * as TaskListStories from './PureTaskList.stories';
 
  const store = createStore({
    state: {
@@ -51,6 +51,7 @@ export const Default = Template.bind({});
 export const Error = Template.bind({});
 Error.args = { error: true };
 
+// Export with interactions
 export const WithInteractions = Template.bind({});
  WithInteractions.play = async ({ canvasElement }) => {
    const canvas = within(canvasElement);
